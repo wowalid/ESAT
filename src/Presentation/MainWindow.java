@@ -18,13 +18,21 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import Abstraction.Excel;
 import control.controlCopy;
 
+
 public class MainWindow extends JFrame{
+	
+	private Excel excel;
 	
 	public MainWindow () { 
 		super("ESAT"); 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		// partie Abstraction :
+		
+		excel = new Excel("lib"+File.separator+"statss.xlsx", "mal 1");
 		
 		Container c = this.getContentPane(); 
 		c.setLayout(new BoxLayout(c,BoxLayout.PAGE_AXIS));
