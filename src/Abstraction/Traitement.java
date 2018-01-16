@@ -28,7 +28,7 @@ public class Traitement {
 	
 	public void Ecrire() {
 		Object[][] tableau = this.excel.getBody();
-		
+		tableau[lig][col] = ecrire;
 	}
 	
 }
