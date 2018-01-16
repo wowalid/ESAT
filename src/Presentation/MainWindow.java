@@ -2,14 +2,20 @@ package Presentation;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.io.File;
 
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import control.controlCopy;
 
 public class MainWindow extends JFrame{
 	
@@ -18,9 +24,19 @@ public class MainWindow extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		Container c = this.getContentPane(); 
-		c.setLayout(new GridLayout(2,1));
+		c.setLayout(new BoxLayout(c,BoxLayout.Y_AXIS));
+		JPanel copy = new JPanel(); 
+		copy.setLayout(new BoxLayout(copy,BoxLayout.X_AXIS));
+		JButton copyright = new JButton (new ImageIcon("images"+File.separator+"copyright.jpg"));
+		copyright.addActionListener(new controlCopy());
+		copyright.setBorder(null);
+		copy.add(copyright); 
+		copy.setPreferredSize(new Dimension(20,20));
+		c.add(copy); 
 		JPanel choix = new JPanel(); 
 		choix.setLayout(new GridLayout(2,13));
+		
+		
 		
 		JCheckBox check = new JCheckBox("Tri"); 
 		Integer[] prog = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24}; 
