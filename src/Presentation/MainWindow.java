@@ -13,6 +13,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import control.controlCopy;
@@ -24,15 +27,15 @@ public class MainWindow extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		Container c = this.getContentPane(); 
-		c.setLayout(new BoxLayout(c,BoxLayout.Y_AXIS));
-		JPanel copy = new JPanel(); 
-		copy.setLayout(new BoxLayout(copy,BoxLayout.X_AXIS));
-		JButton copyright = new JButton (new ImageIcon("images"+File.separator+"copyright.jpg"));
-		copyright.addActionListener(new controlCopy());
-		copyright.setBorder(null);
-		copy.add(copyright); 
-		copy.setPreferredSize(new Dimension(20,20));
-		c.add(copy); 
+		c.setLayout(new BoxLayout(c,BoxLayout.PAGE_AXIS));
+	
+		JMenuBar menu = new JMenuBar(); 
+		JMenu copy2 = new JMenu("Copyright");
+		JMenuItem copy3 = new JMenuItem("Afficher");
+		copy3.addActionListener(new controlCopy());
+		copy2.add(copy3);
+		menu.add(copy2); 
+		this.setJMenuBar(menu);
 		JPanel choix = new JPanel(); 
 		choix.setLayout(new GridLayout(2,13));
 		
