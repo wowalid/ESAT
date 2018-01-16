@@ -17,6 +17,66 @@ public class Excel
     private String lastFileName = null;
     private String lastSheetName = null;
     
+    public Excel(String fileName, int sheetId, String sheetName)
+    {
+        try
+        {
+            this.setLastFileName(fileName);
+            this.setLastSheetName(sheetName);
+            FileInputStream file = new FileInputStream(fileName);
+            Workbook workbook = WorkbookFactory.create(file);
+            final Sheet sheet = workbook.getSheetAt(sheetId);
+            int top = sheet.getFirstRowNum();
+            int bottom = sheet.getLastRowNum();
+            Row line = sheet.getRow(top);
+            int start = line.getFirstCellNum();
+            int end = line.getLastCellNum();    
+            int length = end - start;
+            while(length == 0)
+            {
+                top++;
+                line = sheet.getRow(top);
+                start = line.getFirstCellNum();
+                end = line.getLastCellNum();    
+                length = end - start;
+            }
+            int hight = bottom - top;
+            this.header =  new String[length];
+            this.body = new Object[hight][length];
+            for (int i = 0; i < length; i++)
+            {
+                header[i] = line.getCell(start + i).getStringCellValue();    
+            }
+            
+            for (int index = 0; index < hight; index++) 
+            {
+                line = sheet.getRow(index + top + 1);
+                for (int i = 0; i < length; i++)
+                {
+                    Cell cellule = line.getCell(start + i);
+                    switch (cellule.getCellType())
+                    {
+                        case Cell.CELL_TYPE_STRING : 
+                            this.body[index][i] = cellule.getStringCellValue();
+                            break;
+                        case Cell.CELL_TYPE_BOOLEAN : 
+                            this.body[index][i] = cellule.getBooleanCellValue();
+                            break;
+                        default :
+                            this.body[index][i] = cellule.getNumericCellValue();
+                    }
+                }
+            }
+            workbook.close();
+            file.close();
+        }
+         catch (InvalidFormatException | IOException e) 
+        {
+             e.printStackTrace();
+        }
+    }
+        
+    
     public Excel(String fileName, String sheetName)
     {
         try
