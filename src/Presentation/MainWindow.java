@@ -19,7 +19,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import Abstraction.Excel;
+import control.controlCalcul;
 import control.controlCopy;
+import control.controlInfo;
+import control.controlModif;
 
 
 public class MainWindow extends JFrame{
@@ -27,7 +30,7 @@ public class MainWindow extends JFrame{
 	private Excel excel;
 	
 	public MainWindow () { 
-		super("ESAT"); 
+		super("ESAT-Coût d'une pièce"); 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		// partie Abstraction :
@@ -38,11 +41,19 @@ public class MainWindow extends JFrame{
 		c.setLayout(new BoxLayout(c,BoxLayout.PAGE_AXIS));
 	
 		JMenuBar menu = new JMenuBar(); 
-		JMenu copy2 = new JMenu("Copyright");
-		JMenuItem copy3 = new JMenuItem("Afficher");
+		JMenu copy2 = new JMenu("Menu");
+		JMenu modifier = new JMenu("Modifier"); 
+		JMenuItem modif = new JMenuItem("Modifier"); 
+		modif.addActionListener(new controlModif());
+		modifier.add(modif);
+		JMenuItem copy3 = new JMenuItem("Copyright");
+		JMenuItem copy4 = new JMenuItem("Informations"); 
 		copy3.addActionListener(new controlCopy());
+		copy4.addActionListener(new controlInfo());
 		copy2.add(copy3);
+		copy2.add(copy4);
 		menu.add(copy2); 
+		menu.add(modifier);
 		this.setJMenuBar(menu);
 		JPanel choix = new JPanel(); 
 		choix.setLayout(new GridLayout(2,13));
@@ -58,13 +69,13 @@ public class MainWindow extends JFrame{
 		programme.add(NomProg,BorderLayout.WEST);
 		programme.add(lavage,BorderLayout.CENTER);
 		
-		Integer[] mach = {1,2,3,4,5}; 
+		/*Integer[] mach = {1,2,3,4,5}; 
 		JComboBox<Integer> machine = new JComboBox<Integer>(mach);
 		JLabel NomMachine = new JLabel("Machine");
 		JPanel mac = new JPanel(); 
 		mac.setLayout(new BorderLayout());
 		mac.add(NomMachine,BorderLayout.WEST);
-		mac.add(machine,BorderLayout.CENTER);
+		mac.add(machine,BorderLayout.CENTER);*/
 		
 		JCheckBox presech = new JCheckBox("Préséchage"); 
 		
@@ -91,7 +102,7 @@ public class MainWindow extends JFrame{
 		
 		
 		choix.add(check);
-		choix.add(mac); 
+		//choix.add(mac); 
 		choix.add(programme);
 		choix.add(presech);
 		choix.add(sec);
@@ -104,13 +115,17 @@ public class MainWindow extends JFrame{
 		
 		c.add(choix); 
 		JPanel resul = new JPanel();
-		resul.setLayout(new GridLayout(1,2));
+		resul.setLayout(new GridLayout(1,3));
 		
 		JButton calculer = new JButton("Calcul");
-		resul.add(calculer); 
-		JLabel resultat = new JLabel("bite"); 
+		resul.add(calculer);
+		calculer.addActionListener(new controlCalcul(new fenetreResultat()));
+		/*JLabel nomResul = new JLabel("Le coût de la pièce est :"); 
+		nomResul.setHorizontalAlignment(0);
+		JLabel resultat = new JLabel("0"); 
 		resultat.setHorizontalAlignment(0);
-		resul.add(resultat); 
+		resul.add(nomResul);
+		resul.add(resultat); */
 		
 		c.add(resul); 
 		this.pack(); 
@@ -118,7 +133,7 @@ public class MainWindow extends JFrame{
 	
 	public static void main (String args[]) {
 		MainWindow f = new MainWindow(); 
-		
+		f.setLocationRelativeTo(null);
 		f.setVisible(true);
 		
 	}
