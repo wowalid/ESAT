@@ -5,6 +5,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -18,8 +19,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import Abstraction.Excel;
+
 import control.controlCalcul;
+import control.controlCheckBox;
 import control.controlCopy;
 import control.controlInfo;
 import control.controlModif;
@@ -27,16 +29,14 @@ import control.controlModif;
 
 public class MainWindow extends JFrame{
 	
-	private Excel excel;
+
 	
 	public MainWindow () { 
 		super("ESAT-Coût d'une pièce"); 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		// partie Abstraction :
-		
-		excel = new Excel("lib"+File.separator+"statss.xlsx", "mal 1");
-		
+
 		Container c = this.getContentPane(); 
 		c.setLayout(new BoxLayout(c,BoxLayout.PAGE_AXIS));
 	
@@ -77,6 +77,7 @@ public class MainWindow extends JFrame{
 		mac.add(NomMachine,BorderLayout.WEST);
 		mac.add(machine,BorderLayout.CENTER);*/
 		
+		
 		JCheckBox presech = new JCheckBox("Préséchage"); 
 		
 		Integer[] sech = {0,1,2,3}; 
@@ -89,17 +90,17 @@ public class MainWindow extends JFrame{
 		
 		JCheckBox calandre = new JCheckBox("Calandre"); 
 		
-		JCheckBox defroissage = new JCheckBox("Défroissage"); 
 		
-		JCheckBox repassage = new JCheckBox("Repassage"); 
+		JCheckBox defroissage = new JCheckBox("Défroissage"); 	
 		
-		JCheckBox cintre = new JCheckBox("Mise sur cintre"); 
+		JCheckBox repassage = new JCheckBox("Repassage"); 	
+		
+		JCheckBox cintre = new JCheckBox("Mise sur cintre"); 	
 		
 		JCheckBox pliage = new JCheckBox("Pliage"); 
 		
-		JCheckBox emballage = new JCheckBox("Emballage"); 
-		
-		
+		JCheckBox emballage = new JCheckBox("Emballage"); 	
+
 		
 		choix.add(check);
 		//choix.add(mac); 
