@@ -23,6 +23,7 @@ import Abstraction.Donnees;
 import control.controlCalcul;
 import control.controlCheckBox;
 import control.controlCopy;
+import control.controlExporter;
 import control.controlInfo;
 import control.controlJCombo1;
 import control.controlModif;
@@ -46,9 +47,11 @@ public class MainWindow extends JFrame{
 		JMenuBar menu = new JMenuBar(); 
 		JMenu copy2 = new JMenu("Menu");
 		JMenu modifier = new JMenu("Modifier"); 
+		JMenu exporter = new JMenu("Exporter...");
 		JMenuItem modif = new JMenuItem("Modifier"); 
 		modif.addActionListener(new controlModif());
 		modifier.add(modif);
+		exporter.addActionListener(new controlExporter(exporter, this.donnees));
 		JMenuItem copy3 = new JMenuItem("Copyright");
 		JMenuItem copy4 = new JMenuItem("Informations"); 
 		copy3.addActionListener(new controlCopy());
@@ -57,6 +60,7 @@ public class MainWindow extends JFrame{
 		copy2.add(copy3);
 		menu.add(copy2); 
 		menu.add(modifier);
+		menu.add(exporter);
 		this.setJMenuBar(menu);
 		JPanel choix = new JPanel(); 
 		choix.setLayout(new GridLayout(2,13));
