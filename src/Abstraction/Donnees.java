@@ -4,8 +4,6 @@ import java.util.Observable;
 
 import javax.swing.UIManager;
 
-import abstraction.Cours;
-import presentation.MainWindow;
 
 public class Donnees extends Observable{
 	
