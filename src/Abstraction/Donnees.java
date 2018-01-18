@@ -3,13 +3,17 @@ package Abstraction;
 import java.util.Observable;
 
 import javax.swing.UIManager;
-
-import abstraction.Cours;
-import presentation.MainWindow;
+import Presentation.MainWindow;
 
 public class Donnees extends Observable{
+	public double[]  ResultatParMachine ; 
+	public int[] boutonValeurs = {1 , 3, 1, 1, 1, 1, 1, 1 , 1, 1, 1, 1};
+	public double prixElec = 0.14;
+	public double prixGaz =  0.0785;
+	public double prixDelEau = 0.995;
 	
 	public Donnees() {
+		this.ResultatParMachine = new double[5]; 
 		//PRIX CALANDRE !
 			Double[][] Calandre = {{1.0,8.0,52.0,32.656, 4.082, 32.656, 2.0},{8.0,56.0,35.168,4.396,35.168}};
 
@@ -43,9 +47,7 @@ public class Donnees extends Observable{
 		
 		// PROCESS VOULU
 			
-			double prixElec = 0.14;
-			double prixGaz =  0.0785;
-			double prixDelEau = 0.995;
+			
 				
 		
 		//PRIX ML
@@ -233,16 +235,15 @@ public class Donnees extends Observable{
 				1.953178125};
 		
 		// PROCESS
-		int[] BoutonsValeurs = {1 , 1, 1, 1, 1, 1, 1, 1 , 1, 1, 1, 1};
-		System.out.println(BoutonsValeurs[3]);
+		System.out.println(boutonValeurs[3]);
 		double[] ResultatsIntermediaires = new double[12];
 		double[] ResultatsMachines = new double[6];
 		
-		ResultatsIntermediaires[0] = tMoyen[0]*coutMO[1]*BoutonsValeurs[0];
+		ResultatsIntermediaires[0] = tMoyen[0]*coutMO[1]*boutonValeurs[0];
 		
-		ResultatsIntermediaires[2] = MoyPresechage*BoutonsValeurs[2];
+		ResultatsIntermediaires[2] = MoyPresechage*boutonValeurs[2];
 		
-		switch(BoutonsValeurs[3]) {
+		switch(boutonValeurs[3]) {
 		
 			case 1 : ResultatsIntermediaires[3] = prixSechoir[0];
 				     break;
@@ -259,13 +260,13 @@ public class Donnees extends Observable{
 		}
 		
 		
-		ResultatsIntermediaires[4] = tMoyen[0]*coutMO[4]*2*BoutonsValeurs[4]+tMoyen[1]*Calandre[0][4];
+		ResultatsIntermediaires[4] = tMoyen[0]*coutMO[4]*2*boutonValeurs[4]+tMoyen[1]*Calandre[0][4];
 		
-		ResultatsIntermediaires[5] = tMoyen[2]*coutMO[4]*BoutonsValeurs[5];
+		ResultatsIntermediaires[5] = tMoyen[2]*coutMO[4]*boutonValeurs[5];
 		
-		ResultatsIntermediaires[6] = tMoyen[3]*coutMO[4]*BoutonsValeurs[6];
+		ResultatsIntermediaires[6] = tMoyen[3]*coutMO[4]*boutonValeurs[6];
 		
-		ResultatsIntermediaires[7] = tMoyen[4]*coutMO[4]*BoutonsValeurs[7];
+		ResultatsIntermediaires[7] = tMoyen[4]*coutMO[4]*boutonValeurs[7];
 		
 		double Resultat = 0;
 		
@@ -276,7 +277,7 @@ public class Donnees extends Observable{
 			Resultat += ResultatsIntermediaires[i];
 		}
 		
-		switch(BoutonsValeurs[1]) {
+		switch(boutonValeurs[1]) {
 			case 1 : ResultatsMachines[1] = prixProgramme[1][2];
 					 ResultatsMachines[4] = prixProgramme[1][5];
 					 ResultatsMachines[0] = prixProgramme[10][1];
@@ -409,8 +410,18 @@ public class Donnees extends Observable{
 			          
 		
 		}
+		
+		
+		for (int i = 0 ; i<5 ; i++) {
+			this.ResultatParMachine[i]=ResultatsMachines[i];
+			for (int j = 0 ; j< ResultatsIntermediaires.length ; j++ ) {
+				this.ResultatParMachine[i]+=ResultatsIntermediaires[j]; 
+			}
+			
+		}
 		for (int i=0; i<5 ; i++) {
-			System.out.println(" :"+ ResultatsMachines[i]);
+			
+			System.out.println(" :"+ ResultatParMachine[i]);
 		}
 		
 	}

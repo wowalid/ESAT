@@ -16,7 +16,6 @@ public class controlCalcul implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		fen.setLocationRelativeTo(null);
 		this.fen.setVisible(true);
-		
 	}
 	
 	

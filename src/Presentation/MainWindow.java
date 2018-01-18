@@ -19,7 +19,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-
+import Abstraction.Donnees;
 import control.controlCalcul;
 import control.controlCheckBox;
 import control.controlCopy;
@@ -28,13 +28,15 @@ import control.controlModif;
 
 
 public class MainWindow extends JFrame{
+	public Donnees donnees;
 	
 
 	
 	public MainWindow () { 
 		super("ESAT-Coût d'une pièce"); 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
+		 
+		this.donnees = new Donnees() ;
 		// partie Abstraction :
 
 		Container c = this.getContentPane(); 
@@ -101,6 +103,38 @@ public class MainWindow extends JFrame{
 		
 		JCheckBox emballage = new JCheckBox("Emballage"); 	
 
+		ArrayList<JCheckBox> checkboxs = new ArrayList<JCheckBox>(); 
+		checkboxs.add(check); //0
+		check.addItemListener(new controlCheckBox(checkboxs,0,donnees.boutonValeurs,0));
+		
+		checkboxs.add(presech); //2
+		presech.addItemListener(new controlCheckBox(checkboxs,2,donnees.boutonValeurs,1));
+
+		
+		checkboxs.add(calandre); //4
+		calandre.addItemListener(new controlCheckBox(checkboxs,4,donnees.boutonValeurs,2));
+
+		
+		checkboxs.add(defroissage); //5
+		defroissage.addItemListener(new controlCheckBox(checkboxs,5,donnees.boutonValeurs,3));
+
+		
+		checkboxs.add(repassage); //6
+		repassage.addItemListener(new controlCheckBox(checkboxs,6,donnees.boutonValeurs,4));
+
+		
+		checkboxs.add(cintre); //7
+		cintre.addItemListener(new controlCheckBox(checkboxs,7,donnees.boutonValeurs,5));
+
+		
+		checkboxs.add(pliage); //8
+		pliage.addItemListener(new controlCheckBox(checkboxs,8,donnees.boutonValeurs,6));
+
+		
+		checkboxs.add(emballage); //9
+		emballage.addItemListener(new controlCheckBox(checkboxs,9,donnees.boutonValeurs,7));
+
+		
 		
 		choix.add(check);
 		//choix.add(mac); 
@@ -120,7 +154,7 @@ public class MainWindow extends JFrame{
 		
 		JButton calculer = new JButton("Calcul");
 		resul.add(calculer);
-		calculer.addActionListener(new controlCalcul(new fenetreResultat()));
+		calculer.addActionListener(new controlCalcul(new fenetreResultat(this.donnees)));
 		/*JLabel nomResul = new JLabel("Le coût de la pièce est :"); 
 		nomResul.setHorizontalAlignment(0);
 		JLabel resultat = new JLabel("0"); 
