@@ -53,8 +53,8 @@ public class MainWindow extends JFrame{
 		JMenuItem copy4 = new JMenuItem("Informations"); 
 		copy3.addActionListener(new controlCopy());
 		copy4.addActionListener(new controlInfo());
-		copy2.add(copy3);
 		copy2.add(copy4);
+		copy2.add(copy3);
 		menu.add(copy2); 
 		menu.add(modifier);
 		this.setJMenuBar(menu);
@@ -64,7 +64,7 @@ public class MainWindow extends JFrame{
 		
 		
 		JCheckBox check = new JCheckBox("Tri"); 
-		Integer[] prog = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24}; 
+		Integer[] prog = {1,2,3,4,5,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24}; 
 		JComboBox<Integer> lavage = new JComboBox<Integer>(prog);
 		JLabel NomProg = new JLabel("Programme");
 		JPanel programme = new JPanel(); 
@@ -86,8 +86,8 @@ public class MainWindow extends JFrame{
 		JComboBox<Integer> sechoir = new JComboBox<Integer>(sech);
 		JLabel NomSech = new JLabel("Sechage");
 		JPanel sec = new JPanel(); 
-		lavage.addActionListener(new controlJCombo1(lavage,sechoir,this.donnees,0));
-		sechoir.addActionListener(new controlJCombo1(lavage,sechoir,this.donnees,1));
+		lavage.addItemListener(new controlJCombo1(lavage,sechoir,this.donnees,0));
+		sechoir.addItemListener(new controlJCombo1(lavage,sechoir,this.donnees,1));
 		
 		programme.add(NomProg,BorderLayout.WEST);
 		programme.add(lavage,BorderLayout.CENTER);
