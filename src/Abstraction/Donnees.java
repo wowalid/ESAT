@@ -235,12 +235,12 @@ public class Donnees extends Observable{
 				1.953178125};
 		
 		// PROCESS
-<<<<<<< HEAD
+
 		int[] BoutonsValeurs = {1 , 3, 1, 1, 1, 1, 1, 1 , 1, 1, 1, 1};
 		System.out.println(BoutonsValeurs[3]);
-=======
+
 		System.out.println(boutonValeurs[3]);
->>>>>>> 6bec10727a53d2301369a878fbeee948d1d2120c
+
 		double[] ResultatsIntermediaires = new double[12];
 		double[] ResultatsMachines = new double[6];
 		
