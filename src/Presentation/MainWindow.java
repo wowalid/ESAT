@@ -86,8 +86,8 @@ public class MainWindow extends JFrame{
 		JComboBox<Integer> sechoir = new JComboBox<Integer>(sech);
 		JLabel NomSech = new JLabel("Sechage");
 		JPanel sec = new JPanel(); 
-		lavage.addActionListener(new controlJCombo1(lavage,sechoir,this.donnees,0));
-		sechoir.addActionListener(new controlJCombo1(lavage,sechoir,this.donnees,1));
+		lavage.addItemListener(new controlJCombo1(lavage,sechoir,this.donnees,0));
+		sechoir.addItemListener(new controlJCombo1(lavage,sechoir,this.donnees,1));
 		
 		programme.add(NomProg,BorderLayout.WEST);
 		programme.add(lavage,BorderLayout.CENTER);

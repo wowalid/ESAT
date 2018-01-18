@@ -100,7 +100,7 @@ public class Donnees extends Observable{
 		double[][] prixProgramme = new double[26][6];
 		for (int i=1; i<=25; i++) {
 			for (int j=1; j<=5; j++) {
-				if (i<=11) {
+				if (i<10) {
 					if (j==2) {
 						switch(i) {
 							case 1 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.6+2.5496;
@@ -138,6 +138,34 @@ public class Donnees extends Observable{
 
 						}
 					}
+				}
+				if (i==10) {
+					switch(j) {
+						case 1 : prixProgramme[i][j] = prixEau[0]+prixChauffage[0]+(60/46)*prixElec*dureeHeures[i-1]*0.8+2.5496;
+							break;
+						case 2 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.6+2.5496;
+							break;	
+						case 3 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+2.5496;
+							break;
+						case 4 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+2.5496;
+							break;
+						case 5 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*prixElec*dureeHeures[i-1]*0.25+2.5496;
+							break;
+					}
+				}
+				if (i==11) {
+					switch(j) {
+					case 1 : prixProgramme[i][j] = prixEau[0]+prixChauffage[0]+(60/46)*prixElec*dureeHeures[i-1]*0.8+0.92;
+						break;
+					case 2 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.6+0.92;
+						break;	
+					case 3 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+0.92;
+						break;
+					case 4 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+0.92;
+						break;
+					case 5 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*prixElec*dureeHeures[i-1]*0.25+0.92;
+						break;
+				}
 				}
 				if (i>=12) {
 					if (j==1) {
@@ -242,10 +270,6 @@ public class Donnees extends Observable{
 		// PROCESS
 
 		int[] BoutonsValeurs = {1 , 3, 1, 1, 1, 1, 1, 1 , 1, 1, 1, 1};
-		System.out.println(BoutonsValeurs[3]);
-
-		System.out.println(boutonValeurs[3]);
-
 		double[] ResultatsIntermediaires = new double[12];
 		double[] ResultatsMachines = new double[6];
 		
@@ -430,7 +454,7 @@ public class Donnees extends Observable{
 		}
 		for (int i=0; i<5 ; i++) {
 			
-			System.out.println(" :"+ ResultatParMachine[i]);
+			System.out.println(" :"+ ResultatsMachines[i]);
 		}	
 		this.setChanged();
 		this.notifyObservers();
