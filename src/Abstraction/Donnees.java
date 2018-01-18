@@ -407,9 +407,7 @@ public class Donnees extends Observable{
 			          
 		
 		}
-		for (int i=0; i<5 ; i++) {
-			System.out.println(" :"+ ResultatsMachines[i]);
-		}
+
 		
 	}
 	
