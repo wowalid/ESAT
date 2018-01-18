@@ -22,11 +22,11 @@ public class controlJCombo1 implements ItemListener{
 		this.i=i; 
 		
 	}
-	
+
 	@Override
 	public void itemStateChanged(ItemEvent arg0) {
+			
 		if (i==0) { 
-
 			this.donnees.boutonValeurs[1]= this.programme.getSelectedIndex()+1; 
 			this.donnees.Calcul();
 		}
