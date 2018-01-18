@@ -9,11 +9,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Abstraction.Donnees;
 import control.controlEnregistrer;
 
 public class fenetreModifier extends JFrame{
-	public fenetreModifier () { 
+	private Donnees donnees;
+	
+	public fenetreModifier (Donnees donnees) { 
 		super("Modifier"); 
+		this.donnees = donnees; 
 		Container c = this.getContentPane();
 		c.setLayout(new GridLayout(4,1));
 		
@@ -45,7 +49,7 @@ public class fenetreModifier extends JFrame{
 		c.add(gaz);
 		
 		JButton enregistrer = new JButton("Enregistrer"); 
-		enregistrer.addActionListener(new controlEnregistrer(this,newElec, newEau, newGaz));
+		enregistrer.addActionListener(new controlEnregistrer(this,newElec, newEau, newGaz,this.donnees));
 		
 		c.add(enregistrer); 
 		this.pack(); 
