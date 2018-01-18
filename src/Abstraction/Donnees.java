@@ -431,7 +431,9 @@ public class Donnees extends Observable{
 		for (int i=0; i<5 ; i++) {
 			
 			System.out.println(" :"+ ResultatParMachine[i]);
-		}		
+		}	
+		this.setChanged();
+		this.notifyObservers();
 	}
 	
 	public static void main(String[] args) {

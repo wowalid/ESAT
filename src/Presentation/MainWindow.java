@@ -24,6 +24,7 @@ import control.controlCalcul;
 import control.controlCheckBox;
 import control.controlCopy;
 import control.controlInfo;
+import control.controlJCombo1;
 import control.controlModif;
 
 
@@ -68,8 +69,7 @@ public class MainWindow extends JFrame{
 		JLabel NomProg = new JLabel("Programme");
 		JPanel programme = new JPanel(); 
 		programme.setLayout(new BorderLayout());
-		programme.add(NomProg,BorderLayout.WEST);
-		programme.add(lavage,BorderLayout.CENTER);
+		
 		
 		/*Integer[] mach = {1,2,3,4,5}; 
 		JComboBox<Integer> machine = new JComboBox<Integer>(mach);
@@ -86,6 +86,13 @@ public class MainWindow extends JFrame{
 		JComboBox<Integer> sechoir = new JComboBox<Integer>(sech);
 		JLabel NomSech = new JLabel("Sechage");
 		JPanel sec = new JPanel(); 
+		lavage.addActionListener(new controlJCombo1(lavage,sechoir,this.donnees,0));
+		sechoir.addActionListener(new controlJCombo1(lavage,sechoir,this.donnees,1));
+		
+		programme.add(NomProg,BorderLayout.WEST);
+		programme.add(lavage,BorderLayout.CENTER);
+		
+		
 		sec.setLayout(new BorderLayout());
 		sec.add(NomSech,BorderLayout.WEST);
 		sec.add(sechoir,BorderLayout.CENTER);
@@ -105,34 +112,34 @@ public class MainWindow extends JFrame{
 
 		ArrayList<JCheckBox> checkboxs = new ArrayList<JCheckBox>(); 
 		checkboxs.add(check); //0
-		check.addItemListener(new controlCheckBox(checkboxs,0,donnees.boutonValeurs,0));
+		check.addItemListener(new controlCheckBox(checkboxs,0,donnees.boutonValeurs,0,this.donnees));
 		
 		checkboxs.add(presech); //2
-		presech.addItemListener(new controlCheckBox(checkboxs,2,donnees.boutonValeurs,1));
+		presech.addItemListener(new controlCheckBox(checkboxs,2,donnees.boutonValeurs,1,this.donnees));
 
 		
 		checkboxs.add(calandre); //4
-		calandre.addItemListener(new controlCheckBox(checkboxs,4,donnees.boutonValeurs,2));
+		calandre.addItemListener(new controlCheckBox(checkboxs,4,donnees.boutonValeurs,2,this.donnees));
 
 		
 		checkboxs.add(defroissage); //5
-		defroissage.addItemListener(new controlCheckBox(checkboxs,5,donnees.boutonValeurs,3));
+		defroissage.addItemListener(new controlCheckBox(checkboxs,5,donnees.boutonValeurs,3,this.donnees));
 
 		
 		checkboxs.add(repassage); //6
-		repassage.addItemListener(new controlCheckBox(checkboxs,6,donnees.boutonValeurs,4));
+		repassage.addItemListener(new controlCheckBox(checkboxs,6,donnees.boutonValeurs,4,this.donnees));
 
 		
 		checkboxs.add(cintre); //7
-		cintre.addItemListener(new controlCheckBox(checkboxs,7,donnees.boutonValeurs,5));
+		cintre.addItemListener(new controlCheckBox(checkboxs,7,donnees.boutonValeurs,5,this.donnees));
 
 		
 		checkboxs.add(pliage); //8
-		pliage.addItemListener(new controlCheckBox(checkboxs,8,donnees.boutonValeurs,6));
+		pliage.addItemListener(new controlCheckBox(checkboxs,8,donnees.boutonValeurs,6,this.donnees));
 
 		
 		checkboxs.add(emballage); //9
-		emballage.addItemListener(new controlCheckBox(checkboxs,9,donnees.boutonValeurs,7));
+		emballage.addItemListener(new controlCheckBox(checkboxs,9,donnees.boutonValeurs,7,this.donnees));
 
 		
 		
