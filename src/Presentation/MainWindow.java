@@ -34,20 +34,25 @@ public class MainWindow extends JFrame{
 
 	
 	public MainWindow () { 
-		super("ESAT-Coût d'une pièce"); 
+		super("Blanchisserie ESAT-Coût d'une pièce"); 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		 
 		this.donnees = new Donnees() ;
 		// partie Abstraction :
 
 		Container c = this.getContentPane(); 
-		c.setLayout(new BoxLayout(c,BoxLayout.PAGE_AXIS));
+		c.setLayout(new BorderLayout());
+		JLabel didierESAT = new JLabel(new ImageIcon("images"+File.separator+"logo.jpg"));
+		c.add(didierESAT,BorderLayout.WEST); 
+		
+		JPanel didier = new JPanel(); 
+		didier.setLayout(new BoxLayout(didier,BoxLayout.PAGE_AXIS));
 	
 		JMenuBar menu = new JMenuBar(); 
 		JMenu copy2 = new JMenu("Menu");
 		JMenu modifier = new JMenu("Modifier"); 
 		JMenuItem modif = new JMenuItem("Modifier"); 
-		modif.addActionListener(new controlModif());
+		modif.addActionListener(new controlModif(this.donnees));
 		modifier.add(modif);
 		JMenuItem copy3 = new JMenuItem("Copyright");
 		JMenuItem copy4 = new JMenuItem("Informations"); 
@@ -155,7 +160,7 @@ public class MainWindow extends JFrame{
 		choix.add(pliage);
 		choix.add(emballage);
 		
-		c.add(choix); 
+		didier.add(choix); 
 		JPanel resul = new JPanel();
 		resul.setLayout(new GridLayout(1,3));
 		
@@ -169,7 +174,8 @@ public class MainWindow extends JFrame{
 		resul.add(nomResul);
 		resul.add(resultat); */
 		
-		c.add(resul); 
+		didier.add(resul); 
+		c.add(didier,BorderLayout.CENTER); 
 		this.pack(); 
 	}
 	
