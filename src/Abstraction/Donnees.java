@@ -11,6 +11,7 @@ public class Donnees extends Observable{
 	public double prixElec = 0.14;
 	public double prixGaz =  0.0785;
 	public double prixDelEau = 0.995;
+	public boolean Calcul = false;
 	
 	public Donnees() {
 		this.ResultatParMachine = new double[5];
@@ -18,7 +19,7 @@ public class Donnees extends Observable{
 	}
 	
 	public void Calcul() {
-		 
+		 Calcul = true;
 		//PRIX CALANDRE !
 			Double[][] Calandre = {{1.0,8.0,52.0,32.656, 4.082, 32.656, 2.0},{8.0,56.0,35.168,4.396,35.168}};
 

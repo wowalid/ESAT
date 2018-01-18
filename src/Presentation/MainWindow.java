@@ -53,10 +53,12 @@ public class MainWindow extends JFrame{
 		JMenu copy2 = new JMenu("Menu");
 		JMenu modifier = new JMenu("Modifier"); 
 		JMenu exporter = new JMenu("Exporter...");
+		JMenuItem export = new JMenuItem("Fichier excel"); 
 		JMenuItem modif = new JMenuItem("Modifier"); 
 		modif.addActionListener(new controlModif(this.donnees));
+		exporter.add(export);
 		modifier.add(modif);
-		exporter.addActionListener(new controlExporter(exporter, this.donnees));
+		export.addActionListener(new controlExporter(exporter, this.donnees));
 		JMenuItem copy3 = new JMenuItem("Copyright");
 		JMenuItem copy4 = new JMenuItem("Informations"); 
 		copy3.addActionListener(new controlCopy());

@@ -1,15 +1,17 @@
 package control;
 
+import java.awt.FileDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import Abstraction.Donnees;
 import Abstraction.Excel;
-import Presentation.fenetreExporter;
 import Presentation.fenetreModifier;
 
 import  java.io.*;
@@ -24,11 +26,24 @@ public class controlExporter implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		
-	        fenetreExporter fen= new fenetreExporter();
-	        fen.setLocationRelativeTo(null);
-	        fen.setVisible(true);
+		if (donnees.Calcul == false) {
+			JOptionPane.showMessageDialog(null, "Veuillez faire un calcul avant d'exporter.");
+		}
+		else {
+	        JFileChooser boiteSauver = new JFileChooser();
+	        boiteSauver.setFileFilter(new FileNameExtensionFilter("Fichier excel", "xls"));
+	              
+	        try{
+	        	  boiteSauver.showSaveDialog(parentComponent); 
+			   }
+	        catch (Exception e){JOptionPane.showMessageDialog(null, "Erreur de lecture.");}
+	        String path = boiteSauver.getSelectedFile().getPath();
+	        Excel excel = new Excel(path+".xls", "Resultats", this.donnees);
+	        excel.Exporter();
+	        System.out.println(path);			
 		}
 	}
+
+}
 
 

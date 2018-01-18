@@ -23,14 +23,14 @@ public class Excel{
             HSSFWorkbook workbook = new HSSFWorkbook();
             HSSFSheet sheet = workbook.createSheet(this.sheetName);  
 
-            HSSFRow rowhead = sheet.createRow((short)0);
+            HSSFRow rowhead = sheet.createRow((short)1);
             for (int i=0; i<5; i++) {
             	rowhead.createCell(i).setCellValue("Machine" + (i+1));
             }
 
-            HSSFRow row = sheet.createRow((short)1);
+            HSSFRow row = sheet.createRow((short)2);
             for (int i=0; i<5; i++) {
-            	rowhead.createCell(i).setCellValue(donnees.ResultatParMachine[i]);
+            	row.createCell(i).setCellValue(donnees.ResultatParMachine[i]);
             }
 
             FileOutputStream fileOut = new FileOutputStream(this.path);
