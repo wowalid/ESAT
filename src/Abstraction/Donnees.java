@@ -13,7 +13,12 @@ public class Donnees extends Observable{
 	public double prixDelEau = 0.995;
 	
 	public Donnees() {
-		this.ResultatParMachine = new double[5]; 
+		this.ResultatParMachine = new double[5];
+		
+	}
+	
+	public void Calcul() {
+		 
 		//PRIX CALANDRE !
 			Double[][] Calandre = {{1.0,8.0,52.0,32.656, 4.082, 32.656, 2.0},{8.0,56.0,35.168,4.396,35.168}};
 
@@ -426,8 +431,7 @@ public class Donnees extends Observable{
 		for (int i=0; i<5 ; i++) {
 			
 			System.out.println(" :"+ ResultatParMachine[i]);
-		}
-		
+		}		
 	}
 	
 	public static void main(String[] args) {
