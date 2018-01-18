@@ -49,7 +49,7 @@ public class Donnees extends Observable{
 				
 		
 		//PRIX ML
-		double[] dureeHeures = {0.1,
+		double[] dureeHeures = {1.0,
 				1.433333333,
 				1.0,
 				0.75,
@@ -96,7 +96,7 @@ public class Donnees extends Observable{
 				if (i<=11) {
 					if (j==2) {
 						switch(i) {
-							case 1 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.6+2.54;
+							case 1 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.6+2.5496;
 									 break;
 							case 2 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.6+0.92;
 									 break;
@@ -165,61 +165,61 @@ public class Donnees extends Observable{
 					}
 					if (j==3) {
 						switch(i) {
-						case 10 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*1.4+2.54;break;
+						case 10 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+2.54;break;
 					
-						case 11 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*1.4+0.92;break;
+						case 11 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+0.92;break;
 					
-						case 12 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*1.4+2.565;break;
+						case 12 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+2.565;break;
 					
-						case 13 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*1.4+1.6;break;
+						case 13 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+1.6;break;
 					
-						case 14 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*1.4+0.91;break;
+						case 14 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+0.91;break;
 					
-						case 16 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*1.4+0.85;break;
+						case 16 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+0.85;break;
 					
-						case 17 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*1.4+2.27;break;
+						case 17 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+2.27;break;
 						
-						case 18 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*1.4+1.16;break;
+						case 18 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+1.16;break;
 						
-						case 19 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*1.4+1.99;break;
+						case 19 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+1.99;break;
 						
-						case 20 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*1.4+1.66;break;
+						case 20 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+1.66;break;
 						
-						case 21 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*1.4+1.41;break;
+						case 21 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+1.41;break;
 						
-						case 22 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*1.4+1.31;break;
+						case 22 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+1.31;break;
 						
-						case 24 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*1.4+1.66;break;
+						case 24 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+1.66;break;
 
 					}
 					}
 					if (j==4) {
 						switch(i) {
-						case 10 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.55+2.54;break;
+						case 10 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+2.54;break;
 					
-						case 11 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.55+0.92;break;
+						case 11 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+0.92;break;
 					
-						case 12 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.55+2.565;break;
+						case 12 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+2.565;break;
 					
-						case 13 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.55+1.6;break;
+						case 13 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+1.6;break;
 					
-						case 14 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.55+0.91;break;
+						case 14 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+0.91;break;
 					
-						case 16 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.55+0.85;break;
+						case 16 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+0.85;break;
 					
-						case 17 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.55+2.27;break;
+						case 17 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+2.27;break;
 						
-						case 18 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.55+1.16;break;
+						case 18 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+1.16;break;
 						
-						case 19 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.55+1.99;break;
+						case 19 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+1.99;break;
 						
-						case 20 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.55+1.66;break;
+						case 20 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+1.66;break;
 						
-						case 21 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.55+1.41;break;
+						case 21 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+1.41;break;
 						
-						case 22 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.55+1.31;break;
+						case 22 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+1.31;break;
 						
-						case 24 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.55+1.66;break;
+						case 24 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+1.66;break;
 
 					}
 					}
@@ -236,7 +236,7 @@ public class Donnees extends Observable{
 		int[] BoutonsValeurs = {1 , 1, 1, 1, 1, 1, 1, 1 , 1, 1, 1, 1};
 		System.out.println(BoutonsValeurs[3]);
 		double[] ResultatsIntermediaires = new double[12];
-		double[] ResultatsMachines = new double[5];
+		double[] ResultatsMachines = new double[6];
 		
 		ResultatsIntermediaires[0] = tMoyen[0]*coutMO[1]*BoutonsValeurs[0];
 		
@@ -278,45 +278,140 @@ public class Donnees extends Observable{
 		
 		switch(BoutonsValeurs[1]) {
 			case 1 : ResultatsMachines[1] = prixProgramme[1][2];
-			
+					 ResultatsMachines[4] = prixProgramme[1][5];
+					 ResultatsMachines[0] = prixProgramme[10][1];
+					 ResultatsMachines[2] = prixProgramme[10][3];
+					 ResultatsMachines[3] = prixProgramme[10][4];
+					 break;
 			case 2 : ResultatsMachines[1] = prixProgramme[2][2];
-			
+					 ResultatsMachines[0] = prixProgramme[11][1];
+					 ResultatsMachines[2] = prixProgramme[11][3];
+					 ResultatsMachines[4] = prixProgramme[2][5];
+					 ResultatsMachines[3] = prixProgramme[11][4];
+				     
+					 break;
 			case 3 : ResultatsMachines[1] = prixProgramme[3][2];
-			
+					 ResultatsMachines[0] = prixProgramme[12][1];
+					 ResultatsMachines[2] = prixProgramme[12][3];
+					 ResultatsMachines[4] = prixProgramme[3][5];
+					 ResultatsMachines[3] = prixProgramme[12][4];
+					 break;
 			case 4 : ResultatsMachines[1] = prixProgramme[4][2];
-			
+			         ResultatsMachines[0] = prixProgramme[13][1];
+			         ResultatsMachines[2] = prixProgramme[13][3];
+			         ResultatsMachines[4] = prixProgramme[4][5];
+			         ResultatsMachines[3] = prixProgramme[13][4];
+					 break;
 			case 5 : ResultatsMachines[1] = prixProgramme[5][2];
-			
+					 ResultatsMachines[0] = prixProgramme[18][1];
+					 ResultatsMachines[2] = prixProgramme[18][3];
+					 ResultatsMachines[4] = prixProgramme[5][5];
+					 ResultatsMachines[3] = prixProgramme[18][4];
+					 break;
 			case 7 : ResultatsMachines[1] = prixProgramme[6][2];
-			
+					 ResultatsMachines[0] = prixProgramme[14][1];
+					 ResultatsMachines[2] = prixProgramme[14][3];
+					 ResultatsMachines[4] = prixProgramme[6][5];
+					 ResultatsMachines[3] = prixProgramme[14][4];
+			         break;
 			case 8 : ResultatsMachines[1] = prixProgramme[7][2];
-			
+					 ResultatsMachines[0] = prixProgramme[22][1];
+					 ResultatsMachines[2] = prixProgramme[22][3];
+					 ResultatsMachines[4] = prixProgramme[7][5];
+					 ResultatsMachines[3] = prixProgramme[22][4];
+					 break;
 			case 9 : ResultatsMachines[1] = prixProgramme[8][2];
+			         ResultatsMachines[4] = prixProgramme[8][5];
 			
+					 break;
 			case 10 : ResultatsMachines[1] = prixProgramme[9][2];
-			
+					  ResultatsMachines[0] = prixProgramme[10][1];
+					  ResultatsMachines[2] = prixProgramme[10][3];
+					  ResultatsMachines[4] = prixProgramme[9][5];
+					  ResultatsMachines[3] = prixProgramme[10][4];
+					  break;
 			case 11 : ResultatsMachines[1] = prixProgramme[2][2];
-			
+					  ResultatsMachines[0] = prixProgramme[11][1];
+					  ResultatsMachines[2] = prixProgramme[11][3];
+					  ResultatsMachines[4] = prixProgramme[2][5];
+					  ResultatsMachines[3] = prixProgramme[11][4];
+					  break;
 			case 12 : ResultatsMachines[1] = prixProgramme[3][2];
-			
+				      ResultatsMachines[0] = prixProgramme[12][1];
+				      ResultatsMachines[2] = prixProgramme[12][3];
+				      ResultatsMachines[4] = prixProgramme[3][5];
+				      ResultatsMachines[3] = prixProgramme[12][4];
+			          break;
 			case 13 : ResultatsMachines[1] = prixProgramme[4][2];
-			
+					  ResultatsMachines[0] = prixProgramme[13][1];
+					  ResultatsMachines[2] = prixProgramme[13][3];
+					  ResultatsMachines[4] = prixProgramme[4][5];
+					  ResultatsMachines[3] = prixProgramme[13][4];
+					  break;
 			case 14 : ResultatsMachines[1] = prixProgramme[5][2];
-			
+					  ResultatsMachines[0] = prixProgramme[14][1];
+					  ResultatsMachines[2] = prixProgramme[14][3];
+					  ResultatsMachines[4] = prixProgramme[5][5];
+					  ResultatsMachines[3] = prixProgramme[14][4];
+					  break;
 			case 15 : ResultatsMachines[1] = prixProgramme[7][2];
-			
+			          ResultatsMachines[4] = prixProgramme[7][5];
+
+					  break;
+			case 16 : ResultatsMachines[0] = prixProgramme[16][1];
+					  ResultatsMachines[2] = prixProgramme[16][3];
+					  ResultatsMachines[3] = prixProgramme[16][4];
+				      break;
+			case 17 : ResultatsMachines[0] = prixProgramme[17][1];
+					  ResultatsMachines[2] = prixProgramme[17][3];
+					  ResultatsMachines[3] = prixProgramme[17][4];
+					  break;
 			case 18 : ResultatsMachines[1] = prixProgramme[8][2];
-			
+					  ResultatsMachines[0] = prixProgramme[18][1];
+					  ResultatsMachines[2] = prixProgramme[18][3];
+					  ResultatsMachines[4] = prixProgramme[8][5];
+					  ResultatsMachines[3] = prixProgramme[18][4];
+					  break;
+			case 19 : ResultatsMachines[0] = prixProgramme[19][1];
+			          ResultatsMachines[2] = prixProgramme[19][3];
+			          ResultatsMachines[3] = prixProgramme[19][4];
+					  break;
 			case 20 : ResultatsMachines[1] = prixProgramme[3][2];
-			
+					  ResultatsMachines[0] = prixProgramme[20][1];
+					  ResultatsMachines[2] = prixProgramme[20][3];
+					  ResultatsMachines[4] = prixProgramme[3][5];
+					  ResultatsMachines[3] = prixProgramme[20][4];
+					  break;
+			case 21 : ResultatsMachines[0] = prixProgramme[21][1];
+			          ResultatsMachines[2] = prixProgramme[21][3];
+			          ResultatsMachines[3] = prixProgramme[21][4];
+				      break;
 			case 22 : ResultatsMachines[1] = prixProgramme[7][2];
-			
+					  ResultatsMachines[0] = prixProgramme[22][1];
+					  ResultatsMachines[2] = prixProgramme[22][3];
+					  ResultatsMachines[4] = prixProgramme[7][5];
+					  ResultatsMachines[3] = prixProgramme[22][4];
+					  break;
+			case 23 : ResultatsMachines[0] = prixProgramme[23][1];
+			          ResultatsMachines[2] = prixProgramme[23][3];
+			          ResultatsMachines[3] = prixProgramme[23][4];
+				      break;
 			case 24 : ResultatsMachines[1] = prixProgramme[3][2];
-			
+			          ResultatsMachines[2] = prixProgramme[24][3];
+				      ResultatsMachines[0] = prixProgramme[24][1];
+				      ResultatsMachines[4] = prixProgramme[3][5];
+				      ResultatsMachines[3] = prixProgramme[24][4];
+					  break;
+			case 25 : ResultatsMachines[0] = prixProgramme[25][1];
+			          ResultatsMachines[2] = prixProgramme[25][3];
+			          ResultatsMachines[3] = prixProgramme[25][4];
+			          break;
+			          
 		
 		}
-		
-		System.out.println(ResultatsIntermediaires[3]);
+		for (int i=0; i<5 ; i++) {
+			System.out.println(" :"+ ResultatsMachines[i]);
+		}
 		
 	}
 	
