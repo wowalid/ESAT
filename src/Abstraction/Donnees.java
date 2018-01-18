@@ -415,10 +415,6 @@ public class Donnees extends Observable{
 			          
 		
 		}
-<<<<<<< HEAD
-
-=======
-		
 		
 		for (int i = 0 ; i<5 ; i++) {
 			this.ResultatParMachine[i]=ResultatsMachines[i];
@@ -431,7 +427,6 @@ public class Donnees extends Observable{
 			
 			System.out.println(" :"+ ResultatParMachine[i]);
 		}
->>>>>>> 6bec10727a53d2301369a878fbeee948d1d2120c
 		
 	}
 	
