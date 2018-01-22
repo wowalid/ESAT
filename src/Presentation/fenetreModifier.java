@@ -28,7 +28,7 @@ public class fenetreModifier extends JFrame{
 		elec.add(nomElec);
 		elec.add(newElec);
 		JButton modifierElec = new JButton("Modifier");
-		elec.addActionListener(new controlEnregistrer(this,newElec,this.donnees));
+		modifierElec.addActionListener(new controlEnregistrer(this,newElec, nomElec ,this.donnees));
 		elec.add(modifierElec);
 		
 		JPanel eau = new JPanel();
@@ -38,7 +38,7 @@ public class fenetreModifier extends JFrame{
 		eau.add(nomEau);
 		eau.add(newEau);
 		JButton modifierEau = new JButton("Modifier");
-		eau.addActionListener(new controlEnregistrer(this,newEau, this.donnees));
+		modifierEau.addActionListener(new controlEnregistrer(this,newEau, nomEau, this.donnees));
 		eau.add(modifierEau);
 		
 		JPanel gaz = new JPanel(); 
@@ -48,7 +48,7 @@ public class fenetreModifier extends JFrame{
 		gaz.add(nomGaz);
 		gaz.add(newGaz);
 		JButton modifierGaz = new JButton("Modifier");
-		gaz.addActionListener(new controlEnregistrer(this, newGaz,this.donnees));
+		modifierGaz.addActionListener(new controlEnregistrer(this, newGaz, nomGaz,this.donnees));
 		gaz.add(modifierGaz);
 		
 		c.add(elec);

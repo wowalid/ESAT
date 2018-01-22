@@ -21,13 +21,10 @@ public class Donnees extends Observable{
 	public void Calcul() {
 		 Calcul = true;
 		//PRIX CALANDRE !
-			Double[][] Calandre = {{1.0,8.0,52.0,32.656, 4.082, 32.656, 2.0},{8.0,56.0,35.168,4.396,35.168}};
-
-		
+		double Calandre[] = new double[2];
+		Calandre[0] = 52*this.prixGaz;
+		Calandre[1] = 56*this.prixGaz;
 		//PRIX SECHOIR:!!
-			Double[][] sechoir1 = {{1.0,0.75,21.2,0.0,0.0,2.2078125,	0.0,0.0,2.2078125},
-					{2.0,0.75,	36.0,0.0,0.0,3.8563125,0.0,	0.0,	3.8563125},
-					{3.0,	0.75,	25.0,	0.0,	0.0,	1.953178125,	0.0,	0.0,	1.953178125}};
 
 		 double MoyPresechage  = (0.3434375+0.599870833+0.303827708)/3;
 		//PRIX LESSIVE!!
@@ -83,58 +80,61 @@ public class Donnees extends Observable{
 				1.016666667,
 				0.766666667};
 				
-		double[] prixEau = {0.3383,
-				0.277605,
-				0.60695,
-				0.207955,
-				0.08557};
+		double[] consoEau = {0.34,
+				0.279,
+				0.61,
+				0.209,
+				0.086};
+		
+		double[] prixEau = new double[5];
+		for (int i=1; i<prixEau.length; i++) {
+			prixEau[i] = consoEau[i]*this.prixDelEau;
+		}
+		
 		double[] prixChauffage = {1.266086957,
 				0.423111111,
 				2.92173913,
 				0.255652174,
 				0.109565217};
 
-		double[] prixMoteur = new double[5];
-		double[] prixLessive = new double[5];
-		double[] Total = new double[5];	
-		
+
 		double[][] prixProgramme = new double[26][6];
 		for (int i=1; i<=25; i++) {
 			for (int j=1; j<=5; j++) {
 				if (i<10) {
 					if (j==2) {
 						switch(i) {
-							case 1 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.6+2.5496;
+							case 1 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*this.prixElec*dureeHeures[i-1]*0.6+2.5496;
 									 break;
-							case 2 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.6+0.92;
+							case 2 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*this.prixElec*dureeHeures[i-1]*0.6+0.92;
 									 break;
-							case 3 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.6+2.565;break;
+							case 3 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*this.prixElec*dureeHeures[i-1]*0.6+2.565;break;
 							
-							case 4 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.6+1.6;break;
+							case 4 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*this.prixElec*dureeHeures[i-1]*0.6+1.6;break;
 							
-							case 7 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.6+0.91;break;
+							case 7 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*this.prixElec*dureeHeures[i-1]*0.6+0.91;break;
 							
-							case 5 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.6+1.16;break;
+							case 5 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*this.prixElec*dureeHeures[i-1]*0.6+1.16;break;
 							
-							case 8 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.6+1.66;break;
+							case 8 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*this.prixElec*dureeHeures[i-1]*0.6+1.66;break;
 
 						}
 					}
 					if (j==5) {
 						switch(i) {
-							case 1 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*prixElec*dureeHeures[i-1]*0.25+2.54;break;
+							case 1 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*this.prixElec*dureeHeures[i-1]*0.25+2.54;break;
 						
-							case 2 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*prixElec*dureeHeures[i-1]*0.25+0.92;break;
+							case 2 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*this.prixElec*dureeHeures[i-1]*0.25+0.92;break;
 						
-							case 3 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*prixElec*dureeHeures[i-1]*0.25+2.565;break;
+							case 3 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*this.prixElec*dureeHeures[i-1]*0.25+2.565;break;
 						
-							case 4 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*prixElec*dureeHeures[i-1]*0.25+1.6;break;
+							case 4 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*this.prixElec*dureeHeures[i-1]*0.25+1.6;break;
 						
-							case 7 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*prixElec*dureeHeures[i-1]*0.25+0.91;break;
+							case 7 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*this.prixElec*dureeHeures[i-1]*0.25+0.91;break;
 						
-							case 5 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*prixElec*dureeHeures[i-1]*0.25+1.16;break;
+							case 5 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*this.prixElec*dureeHeures[i-1]*0.25+1.16;break;
 						
-							case 8 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*prixElec*dureeHeures[i-1]*0.25+1.66;break;
+							case 8 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*this.prixElec*dureeHeures[i-1]*0.25+1.66;break;
 						
 
 						}
@@ -142,15 +142,15 @@ public class Donnees extends Observable{
 				}
 				if (i==10) {
 					switch(j) {
-						case 1 : prixProgramme[i][j] = prixEau[0]+prixChauffage[0]+(60/46)*prixElec*dureeHeures[i-1]*0.8+2.5496;
+						case 1 : prixProgramme[i][j] = prixEau[0]+prixChauffage[0]+(60/46)*this.prixElec*dureeHeures[i-1]*0.8+2.5496;
 							break;
-						case 2 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*prixElec*dureeHeures[i-1]*0.6+2.5496;
+						case 2 : prixProgramme[i][j] = prixEau[1]+prixChauffage[1]+(60/46)*this.prixElec*dureeHeures[i-1]*0.6+2.5496;
 							break;	
-						case 3 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*prixElec*dureeHeures[i-1]*1.4+2.5496;
+						case 3 : prixProgramme[i][j] = prixEau[2]+prixChauffage[2]+(60/46)*this.prixElec*dureeHeures[i-1]*1.4+2.5496;
 							break;
-						case 4 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*prixElec*dureeHeures[i-1]*0.55+2.5496;
+						case 4 : prixProgramme[i][j] = prixEau[3]+prixChauffage[3]+(60/46)*this.prixElec*dureeHeures[i-1]*0.55+2.5496;
 							break;
-						case 5 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*prixElec*dureeHeures[i-1]*0.25+2.5496;
+						case 5 : prixProgramme[i][j] = prixEau[4]+prixChauffage[4]+(60/46)*this.prixElec*dureeHeures[i-1]*0.25+2.5496;
 							break;
 					}
 				}
@@ -264,9 +264,13 @@ public class Donnees extends Observable{
 		}
 		
 		System.out.println(prixProgramme[1][2]);
-		double[] prixSechoir = {2.2078125,
-				3.8563125,
-				1.953178125};
+		
+		
+		double[] prixSechoir = new double[3];
+		
+		prixSechoir[0] = (60/24)*0.75*15*this.prixGaz;
+		prixSechoir[1] = (60/24)*0.75*26.2*this.prixGaz;
+		prixSechoir[2] = (60/24)*0.75*13.27*this.prixGaz;
 		
 		// PROCESS
 
@@ -295,7 +299,7 @@ public class Donnees extends Observable{
 		}
 		
 		
-		ResultatsIntermediaires[4] = tMoyen[0]*coutMO[4]*2*boutonValeurs[4]+tMoyen[1]*Calandre[0][4];
+		ResultatsIntermediaires[4] = tMoyen[0]*coutMO[4]*2*boutonValeurs[4]+tMoyen[1]*Calandre[0];
 		
 		ResultatsIntermediaires[5] = tMoyen[2]*coutMO[4]*boutonValeurs[5];
 		
