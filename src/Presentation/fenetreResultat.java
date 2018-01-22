@@ -1,5 +1,6 @@
 package Presentation;
 import java.awt.Container;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -19,7 +20,9 @@ public class fenetreResultat extends JFrame{
 		this.donnees=donnees; 
 		Container c = this.getContentPane();
 		c.setLayout(new GridLayout(6,1));
-		JLabel message = new JLabel("Prix du process si passage par : "); 
+		Font arialGras18 = new Font("Arial", Font.BOLD, 18);
+		JLabel message = new JLabel("Prix du process si passage par : \n"); 
+		message.setFont(arialGras18);
 		
 		JPanel m1 = new JPanel() ; 
 		m1.setLayout(new GridLayout(1,2));

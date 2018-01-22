@@ -31,7 +31,6 @@ public class controlCheckBox implements ItemListener{
 	@Override
 	public void itemStateChanged(ItemEvent arg0) {
 		if (checkboxs.get(i).isSelected()) {
-			System.out.println("ok");
 			this.boutonValeurs[lig]= 1; 
 			this.donnees.Calcul();
 		}

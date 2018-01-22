@@ -27,6 +27,7 @@ import control.controlExporter;
 import control.controlInfo;
 import control.controlJCombo1;
 import control.controlModif;
+import control.controlPiece;
 
 
 public class MainWindow extends JFrame{
@@ -70,14 +71,126 @@ public class MainWindow extends JFrame{
 		menu.add(exporter);
 		this.setJMenuBar(menu);
 		JPanel choix = new JPanel(); 
-		choix.setLayout(new GridLayout(2,13));
+		choix.setLayout(new GridLayout(4,14));
 		
+		String[] pieces = {"ALESE 1 place",
+				"ALESE 2 places",
+				"ALESE ENFANT",
+				"ALEZE DE TAIE",
+				"BLOUSE ",
+
+
+
+
+				"BONNET",
+				"CASQUETTE",
+				"CASQUETTES AVEC COQUES",
+				"CHASUBLES",
+				"CHAUSSETTES DE FOOTBALL",
+				"CHEMISES",
+
+				"COMBINAISON",
+
+
+				"COTTE TRAVAIL",
+				"COUETTE 1 PLACE",
+				"COUETTE 2 PLACES",
+				"COUETTE ENFANT",
+				"COUPE VENT",
+				"COUSSINS",
+				"COUVERTURE 1 PLACE",
+				"COUVERTURE 2 PLACES",
+
+				"COUVERTURE D'ENFANT",
+				"CRAVATTE",
+				"DESSUS DE LIT",
+
+
+				"DRAP HOUSSE 1 PLACE",
+				"DRAP HOUSSE 2 PLACES",
+				"DRAP HOUSSE ENFANT",
+				"DRAP PLAT 1 PLACE",
+				"DRAP PLAT 2 PLACES",
+				"DRAP PLAT ENFANT",
+				"DRAPEAU",
+				"DUVET",
+
+				"FRANGE",
+				"GANT",
+				"GILET SAUVETAGE",
+				"HOUSSE COUETTE 1 PLACE",
+				"HOUSSE COUETTE ENFANT",
+				"HOUSSE DE COUETTE 2 PLACES",
+				"HOUSSE DE COUSSIN",
+				"HOUSSE MATELAS 1 PLACE",
+				"HOUSSE MATELAS 2 PLACES",
+				"KIMONO",
+				"MAILLOT ",
+				"NAPPE 12 COUVERTS",
+				"NAPPE 14 COUVERTS",
+				"NAPPE 18 COUVERTS",
+				"NAPPE 8 COUVERTS",
+				"PANTALON",
+				"PANTALON DE CUISINE",
+
+				"PANTALON DE SURVETEMENT",
+				"PANTALON DE TOILE",
+				"PANTALON DE TRAVAIL",
+				"PANTALON GRAISSE",
+				"PANTALON GRAND FROID",
+				"PARKA",
+				"PEIGNOIR",
+				"PELUCHE AU KG",
+				"POLO",
+
+				"RIDEAU DE DOUCHE M²",
+				"RIDEAU M²",
+				"RIDEAU PLASTIFIE M²",
+
+				"SAC A DOS",
+				"SAC LINGE",
+				"SAC MEDICAL",
+				"SERPILLERE",
+				"SERVIETTE DE TABLE",
+				"SERVIETTE DE TOILETTE",
+				"SHORT",
+				"SORTIE DE BAIN",
+
+				"SWEAT SHIRT",
+				"TABLIER OU A BAVETTE",
+				"TABLIER BAS DE CUISINE",
+				"TABLIER DE PEINTURE",
+				"TAIE OREILLER",
+				"TAIE TRAVERSIN",
+				"TAPIS DE BAIN",
+				"TEE SHIRT",
+				"TORCHONS",
+				"TROUSSE DE TOILETTE",
+				"VESTE DE TRAVAIL",
+				"VESTE DE SURVEMENT",
+				"VESTE D'ESCRIME",
+				"CHEMISE ENFANT REPASSAGE",
+				"CHEMISE REPASSAGE",
+				"HOUSSE COUETTE REPASSAGE 2 PLACES",
+				"JUPE REPASSAGE",
+				"TAIE REPASSAGE",
+				"TEE SHIRT ENFANT REPASSAGE",
+				"TEE SHIRT REPASSAGE",
+				"TORCHON ROULEAU",
+		};
 		
+		JComboBox<String> piece = new JComboBox<String>(pieces);
+		piece.addItemListener(new controlPiece(piece, this.donnees));
+		JLabel NomPiece = new JLabel("Piece : ");
+		JPanel piecePan = new JPanel();
+		piecePan.setLayout(new BorderLayout());
+		piecePan.add(NomPiece, BorderLayout.WEST);
+		piecePan.add(piece, BorderLayout.EAST);
 		
 		JCheckBox check = new JCheckBox("Tri"); 
 		Integer[] prog = {1,2,3,4,5,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24}; 
 		JComboBox<Integer> lavage = new JComboBox<Integer>(prog);
-		JLabel NomProg = new JLabel("Programme");
+		JLabel NomProg = new JLabel("Programme : ");
 		JPanel programme = new JPanel(); 
 		programme.setLayout(new BorderLayout());
 		
@@ -90,12 +203,11 @@ public class MainWindow extends JFrame{
 		mac.add(NomMachine,BorderLayout.WEST);
 		mac.add(machine,BorderLayout.CENTER);*/
 		
-		
 		JCheckBox presech = new JCheckBox("Préséchage"); 
 		
 		Integer[] sech = {0,1,2,3}; 
 		JComboBox<Integer> sechoir = new JComboBox<Integer>(sech);
-		JLabel NomSech = new JLabel("Sechage");
+		JLabel NomSech = new JLabel("Sechage : ");
 		JPanel sec = new JPanel(); 
 		lavage.addItemListener(new controlJCombo1(lavage,sechoir,this.donnees,0));
 		sechoir.addItemListener(new controlJCombo1(lavage,sechoir,this.donnees,1));
@@ -154,11 +266,13 @@ public class MainWindow extends JFrame{
 
 		
 		
-		choix.add(check);
+		
 		//choix.add(mac); 
+		choix.add(piecePan);
 		choix.add(programme);
-		choix.add(presech);
 		choix.add(sec);
+		choix.add(presech);
+		choix.add(check);
 		choix.add(calandre);
 		choix.add(defroissage);
 		choix.add(repassage);

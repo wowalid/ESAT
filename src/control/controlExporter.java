@@ -34,13 +34,14 @@ public class controlExporter implements ActionListener{
 	        boiteSauver.setFileFilter(new FileNameExtensionFilter("Fichier excel", "xls"));
 	              
 	        try{
-	        	  boiteSauver.showSaveDialog(parentComponent); 
+	        	  boiteSauver.showSaveDialog(parentComponent);
+	  	          String path = boiteSauver.getSelectedFile().getPath();
+	  	          Excel excel = new Excel(path+".xls", "Resultats", this.donnees);
+	  	          excel.Exporter();
+	  	          System.out.println(path);	
 			   }
-	        catch (Exception e){JOptionPane.showMessageDialog(null, "Erreur de lecture.");}
-	        String path = boiteSauver.getSelectedFile().getPath();
-	        Excel excel = new Excel(path+".xls", "Resultats", this.donnees);
-	        excel.Exporter();
-	        System.out.println(path);			
+	        catch (Exception e){JOptionPane.showMessageDialog(null, "Veuillez choisir un endroit où exporter.");}
+		
 		}
 	}
 

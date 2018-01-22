@@ -27,7 +27,7 @@ public class controlJCombo1 implements ItemListener{
 	public void itemStateChanged(ItemEvent arg0) {
 			
 		if (i==0) { 
-			this.donnees.boutonValeurs[1]= this.programme.getSelectedIndex()+1; 
+			this.donnees.boutonValeurs[1]= (int)this.programme.getSelectedItem(); 
 			this.donnees.Calcul();
 		}
 		else { 
