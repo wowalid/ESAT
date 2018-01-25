@@ -8,6 +8,8 @@ import java.awt.event.ItemListener;
 import javax.swing.JComboBox;
 
 import Abstraction.Donnees;
+import Presentation.fenetreModifier;
+import Presentation.fenetrePoids;
 
 public class controlPiece implements ItemListener{
 	private Donnees donnees; 
@@ -21,6 +23,9 @@ public class controlPiece implements ItemListener{
 	@Override
 	public void itemStateChanged(ItemEvent arg0) {		
 		this.donnees.valeurPiece = this.pieces.getSelectedIndex();
+		/*fenetrePoids fen = new fenetrePoids(this.donnees); 
+		fen.setLocationRelativeTo(null);
+		fen.setVisible(true);*/
 		this.donnees.Calcul();
 	}
 	
