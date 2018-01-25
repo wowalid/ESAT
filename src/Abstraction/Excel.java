@@ -133,16 +133,11 @@ public class Excel{
             	rowhead.createCell(i).setCellValue("Machine" + (i) + "(€)");
             }
             
-            rowhead.createCell(0).setCellValue("Pièces");
-            
-            for (int i=0; i<pieces.length; i++) {
-                HSSFRow row = sheet.createRow((short)i+1);
-                row.createCell(0).setCellValue(pieces[i]);
-                for (int p=1; p<=5; p++) {
-                	this.donnees.valeurPiece=i;
-                	this.donnees.Calcul();
-                	row.createCell(p).setCellValue(df.format(donnees.ResultatParMachine[p-1]));
-                }           	
+            rowhead.createCell(0).setCellValue("Pièce");
+            HSSFRow row = sheet.createRow((short)1);
+            row.createCell(0).setCellValue(pieces[this.donnees.valeurPiece]);
+            for (int p=1; p<=5; p++) {
+                	row.createCell(p).setCellValue(df.format(donnees.ResultatParMachine[p-1]));         	
             }
 
 
