@@ -120,7 +120,6 @@ public class MainWindow extends JFrame{
 
 				"FRANGE",
 				"GANT",
-				"GILET SAUVETAGE",
 				"HOUSSE COUETTE 1 PLACE",
 				"HOUSSE COUETTE ENFANT",
 				"HOUSSE DE COUETTE 2 PLACES",
@@ -181,6 +180,7 @@ public class MainWindow extends JFrame{
 				"TEE SHIRT REPASSAGE",
 				"TORCHON ROULEAU",
 		};
+		
 		
 		JComboBox<String> piece = new JComboBox<String>(pieces);
 		piece.addItemListener(new controlPiece(piece, this.donnees));

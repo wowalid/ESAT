@@ -128,7 +128,7 @@ public class fenetrePoids extends JFrame{
 		c.setLayout(new GridLayout(4,1));
 		
 		JPanel panel = new JPanel();
-		JLabel labelPoids = new JLabel("Le poids de la pièce " + pieces[this.donnees.valeurPiece] + " est : " + this.donnees.poidsPiece[this.donnees.valeurPiece] + " kg");
+		JLabel labelPoids = new JLabel("Le poids de la pièce " + pieces[this.donnees.valeurPiece] + " est : " + this.donnees.poidsPiece[this.donnees.valeurPiece-1] + " kg");
 		JLabel labelPoids2 = new JLabel("Si vous désirez changer le poids de la pièce, veuillez entrer le nouveau poids en dessous");
 		JTextField choisir = new JTextField();
 		JButton save = new JButton("Enregistrer");

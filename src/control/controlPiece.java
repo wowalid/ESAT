@@ -23,9 +23,9 @@ public class controlPiece implements ItemListener{
 	@Override
 	public void itemStateChanged(ItemEvent arg0) {		
 		this.donnees.valeurPiece = this.pieces.getSelectedIndex();
-		/*fenetrePoids fen = new fenetrePoids(this.donnees); 
+		fenetrePoids fen = new fenetrePoids(this.donnees); 
 		fen.setLocationRelativeTo(null);
-		fen.setVisible(true);*/
+		fen.setVisible(true);
 		this.donnees.Calcul();
 	}
 	
