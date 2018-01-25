@@ -16,7 +16,7 @@ public class Donnees extends Observable{
 	public double prixDelEau = 0.995;
 	public boolean Calcul = false;
 	public double poidsAn = 84313;
-	public double immoKg = 95000/84313;
+	public double immoKg = 62000/84313;
 	
 	public double[] poidsPiece =  {0.284,
 			0.44,
@@ -604,18 +604,20 @@ public class Donnees extends Observable{
 		double[] ResultatsMachines = new double[6];
 		
 		ResultatsIntermediaires[0] = tMoyen[0]*coutMO[1]*boutonValeurs[0];
-		
 		ResultatsIntermediaires[2] = MoyPresechage*boutonValeurs[2]/(this.divisionSechoires[this.valeurPiece]*this.volumeRempli*1.53);
 		
 		switch(boutonValeurs[3]) {
 		
-			case 1 : ResultatsIntermediaires[3] = prixSechoir[0]/(this.divisionSechoires[this.valeurPiece]*this.volumeRempli*1.53);
+			case 1 :double frac1 = (25/this.poidsPiece[this.valeurPiece]); //52.5 //25 
+					ResultatsIntermediaires[3] = prixSechoir[0]/(frac1*this.volumeRempli);
 				     break;
 			
-			case 2 : ResultatsIntermediaires[3] = prixSechoir[1]/(this.divisionSechoires[this.valeurPiece]*this.volumeRempli*1.53);
+			case 2 :double frac2 = (52.5/this.poidsPiece[this.valeurPiece]); //52.5 //25 
+					ResultatsIntermediaires[3] = prixSechoir[1]/(frac2*this.volumeRempli);
 		     		 break;
 		     		 
-			case 3 : ResultatsIntermediaires[3] = prixSechoir[2]/(this.divisionSechoires[this.valeurPiece]*this.volumeRempli*1.53);
+			case 3 :double frac3 = (25/this.poidsPiece[this.valeurPiece]); //52.5 //25 
+					ResultatsIntermediaires[3] = prixSechoir[2]/(frac3*this.volumeRempli);
 		     		 break;
 		     		 
 			case 0 : ResultatsIntermediaires[3] = 0;
@@ -767,11 +769,24 @@ public class Donnees extends Observable{
 			          
 		
 		}
-		java.text.DecimalFormat df = new java.text.DecimalFormat("0.##");
+		java.text.DecimalFormat df = new java.text.DecimalFormat("0.###");
 		
 		for (int i = 0 ; i<5 ; i++) {
-			this.ResultatParMachine[i]=ResultatsMachines[i]/(this.divisionMachines[this.valeurPiece]*1.53*this.volumeRempli);
-			this.ResultatParMachine[i]+=this.immoKg*this.poidsPiece[this.valeurPiece];
+			if (i==0) {
+				double frac = (11/this.poidsPiece[this.valeurPiece]);
+				this.ResultatParMachine[i]=ResultatsMachines[i]/(frac*this.volumeRempli);
+				this.ResultatParMachine[i]+=this.immoKg*this.poidsPiece[this.valeurPiece];
+			}
+			else if(i==2) {
+					double frac = (50/this.poidsPiece[this.valeurPiece]);
+					this.ResultatParMachine[i]=ResultatsMachines[i]/(frac*this.volumeRempli);
+					this.ResultatParMachine[i]+=this.immoKg*this.poidsPiece[this.valeurPiece];
+			}
+			else {
+				double frac = (22/this.poidsPiece[this.valeurPiece]);
+				this.ResultatParMachine[i]=ResultatsMachines[i]/(frac*this.volumeRempli);
+				this.ResultatParMachine[i]+=this.immoKg*this.poidsPiece[this.valeurPiece];				
+			}
 			for (int j = 0 ; j< ResultatsIntermediaires.length ; j++ ) {
 				this.ResultatParMachine[i]+=ResultatsIntermediaires[j]; 
 				this.ResultatParMachine[i] = (int)(this.ResultatParMachine[i]*100);
