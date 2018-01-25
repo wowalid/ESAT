@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 
 import Abstraction.Donnees;
 import control.controlEnregistrer;
+import control.controlPoids;
 
 public class fenetrePoids extends JFrame{
 	private Donnees donnees;
@@ -134,17 +135,7 @@ public class fenetrePoids extends JFrame{
 		JLabel labelPoids2 = new JLabel("Si vous désirez changer le poids de la pièce, veuillez entrer le nouveau poids en dessous");
 		JTextField choisir = new JTextField();
 		JButton save = new JButton("Enregistrer");
-		save.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					try {
-						donnees.poidsPiece[donnees.valeurPiece] = Double.parseDouble(choisir.getText());
-					}
-					catch (Exception error){ 
-						JOptionPane.showMessageDialog(null, "Veuillez rentrer des valeurs correctes ou ne rien rentrer");
-					}
-				}
-				
-			});
+		save.addActionListener(new controlPoids(this.donnees, this, choisir));
 		c.add(labelPoids);
 		c.add(labelPoids2);
 		c.add(choisir);
