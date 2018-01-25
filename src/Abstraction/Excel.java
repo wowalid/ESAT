@@ -18,20 +18,133 @@ public class Excel{
 	}
 
 	public void Exporter(){
+		String[] pieces = {"ALESE 1 place",
+				"ALESE 2 places",
+				"ALESE ENFANT",
+				"ALEZE DE TAIE",
+				"BLOUSE ",
+
+
+
+
+				"BONNET",
+				"CASQUETTE",
+				"CASQUETTES AVEC COQUES",
+				"CHASUBLES",
+				"CHAUSSETTES DE FOOTBALL",
+				"CHEMISES",
+
+				"COMBINAISON",
+
+
+				"COTTE TRAVAIL",
+				"COUETTE 1 PLACE",
+				"COUETTE 2 PLACES",
+				"COUETTE ENFANT",
+				"COUPE VENT",
+				"COUSSINS",
+				"COUVERTURE 1 PLACE",
+				"COUVERTURE 2 PLACES",
+
+				"COUVERTURE D'ENFANT",
+				"CRAVATTE",
+				"DESSUS DE LIT",
+
+
+				"DRAP HOUSSE 1 PLACE",
+				"DRAP HOUSSE 2 PLACES",
+				"DRAP HOUSSE ENFANT",
+				"DRAP PLAT 1 PLACE",
+				"DRAP PLAT 2 PLACES",
+				"DRAP PLAT ENFANT",
+				"DRAPEAU",
+				"DUVET",
+
+				"FRANGE",
+				"GANT",
+				"GILET SAUVETAGE",
+				"HOUSSE COUETTE 1 PLACE",
+				"HOUSSE COUETTE ENFANT",
+				"HOUSSE DE COUETTE 2 PLACES",
+				"HOUSSE DE COUSSIN",
+				"HOUSSE MATELAS 1 PLACE",
+				"HOUSSE MATELAS 2 PLACES",
+				"KIMONO",
+				"MAILLOT ",
+				"NAPPE 12 COUVERTS",
+				"NAPPE 14 COUVERTS",
+				"NAPPE 18 COUVERTS",
+				"NAPPE 8 COUVERTS",
+				"PANTALON",
+				"PANTALON DE CUISINE",
+
+				"PANTALON DE SURVETEMENT",
+				"PANTALON DE TOILE",
+				"PANTALON DE TRAVAIL",
+				"PANTALON GRAISSE",
+				"PANTALON GRAND FROID",
+				"PARKA",
+				"PEIGNOIR",
+				"PELUCHE AU KG",
+				"POLO",
+
+				"RIDEAU DE DOUCHE M²",
+				"RIDEAU M²",
+				"RIDEAU PLASTIFIE M²",
+
+				"SAC A DOS",
+				"SAC LINGE",
+				"SAC MEDICAL",
+				"SERPILLERE",
+				"SERVIETTE DE TABLE",
+				"SERVIETTE DE TOILETTE",
+				"SHORT",
+				"SORTIE DE BAIN",
+
+				"SWEAT SHIRT",
+				"TABLIER OU A BAVETTE",
+				"TABLIER BAS DE CUISINE",
+				"TABLIER DE PEINTURE",
+				"TAIE OREILLER",
+				"TAIE TRAVERSIN",
+				"TAPIS DE BAIN",
+				"TEE SHIRT",
+				"TORCHONS",
+				"TROUSSE DE TOILETTE",
+				"VESTE DE TRAVAIL",
+				"VESTE DE SURVEMENT",
+				"VESTE D'ESCRIME",
+				"CHEMISE ENFANT REPASSAGE",
+				"CHEMISE REPASSAGE",
+				"HOUSSE COUETTE REPASSAGE 2 PLACES",
+				"JUPE REPASSAGE",
+				"TAIE REPASSAGE",
+				"TEE SHIRT ENFANT REPASSAGE",
+				"TEE SHIRT REPASSAGE",
+				"TORCHON ROULEAU",
+		};
         try {
-            
+        	java.text.DecimalFormat df = new java.text.DecimalFormat("0.##");
             HSSFWorkbook workbook = new HSSFWorkbook();
             HSSFSheet sheet = workbook.createSheet(this.sheetName);  
 
-            HSSFRow rowhead = sheet.createRow((short)1);
-            for (int i=0; i<5; i++) {
-            	rowhead.createCell(i).setCellValue("Machine" + (i+1));
+            HSSFRow rowhead = sheet.createRow((short)0);
+            for (int i=1; i<=5; i++) {
+            	rowhead.createCell(i).setCellValue("Machine" + (i) + "(€)");
+            }
+            
+            rowhead.createCell(0).setCellValue("Pièces");
+            
+            for (int i=0; i<pieces.length; i++) {
+                HSSFRow row = sheet.createRow((short)i+1);
+                row.createCell(0).setCellValue(pieces[i]);
+                for (int p=1; p<=5; p++) {
+                	this.donnees.valeurPiece=i;
+                	this.donnees.Calcul();
+                	row.createCell(p).setCellValue(df.format(donnees.ResultatParMachine[p-1]));
+                }           	
             }
 
-            HSSFRow row = sheet.createRow((short)2);
-            for (int i=0; i<5; i++) {
-            	row.createCell(i).setCellValue(donnees.ResultatParMachine[i]);
-            }
 
             FileOutputStream fileOut = new FileOutputStream(this.path);
             workbook.write(fileOut);

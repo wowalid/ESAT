@@ -18,6 +18,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import Abstraction.Donnees;
 import control.controlCalcul;
@@ -71,7 +74,7 @@ public class MainWindow extends JFrame{
 		menu.add(exporter);
 		this.setJMenuBar(menu);
 		JPanel choix = new JPanel(); 
-		choix.setLayout(new GridLayout(4,14));
+		choix.setLayout(new GridLayout(4,15));
 		
 		String[] pieces = {"ALESE 1 place",
 				"ALESE 2 places",
@@ -264,8 +267,25 @@ public class MainWindow extends JFrame{
 		checkboxs.add(emballage); //9
 		emballage.addItemListener(new controlCheckBox(checkboxs,9,donnees.boutonValeurs,7,this.donnees));
 
-		
-		
+		JPanel volume = new JPanel();
+		volume.setLayout(new BorderLayout());
+		JSlider volumeSlide = new JSlider();
+		volume.add(volumeSlide, BorderLayout.SOUTH);
+		JLabel volumeLabel = new JLabel("Volume rempli : 65 %");
+		volume.add(volumeLabel, BorderLayout.NORTH);
+	    volumeSlide.setMaximum(100);
+	    volumeSlide.setMinimum(0);
+	    volumeSlide.setValue(65);
+	    volumeSlide.setMinorTickSpacing(10);
+	    volumeSlide.setMajorTickSpacing(20);
+	    volumeSlide.addChangeListener(new ChangeListener(){
+	        public void stateChanged(ChangeEvent event){
+	          volumeLabel.setText("Volume rempli : " + ((JSlider)event.getSource()).getValue() + " %");
+	          donnees.volumeRempli = ((JSlider)event.getSource()).getValue()*0.01;
+	          donnees.Calcul();
+	        }
+
+	      });         
 		
 		//choix.add(mac); 
 		choix.add(piecePan);
@@ -279,7 +299,7 @@ public class MainWindow extends JFrame{
 		choix.add(cintre);
 		choix.add(pliage);
 		choix.add(emballage);
-		
+		choix.add(volume);
 		didier.add(choix); 
 		JPanel resul = new JPanel();
 		resul.setLayout(new GridLayout(1,3));

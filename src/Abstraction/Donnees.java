@@ -9,11 +9,14 @@ public class Donnees extends Observable{
 	private static final double FRACTION = 1.304;
 	public double[]  ResultatParMachine ; 
 	public int[] boutonValeurs = {0 , 1, 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0};
+	public double volumeRempli = 0.65;
 	public int valeurPiece = 0;
 	public double prixElec = 0.14;
 	public double prixGaz =  0.0785;
 	public double prixDelEau = 0.995;
 	public boolean Calcul = false;
+	
+	public double[] poidsPiece =  {};
 	public double[] divisionMachines = {50.35211268,
 			32.5,
 			71.5,
@@ -480,17 +483,17 @@ public class Donnees extends Observable{
 		
 		ResultatsIntermediaires[0] = tMoyen[0]*coutMO[1]*boutonValeurs[0];
 		
-		ResultatsIntermediaires[2] = MoyPresechage*boutonValeurs[2]/this.divisionSechoires[this.valeurPiece];
+		ResultatsIntermediaires[2] = MoyPresechage*boutonValeurs[2]/(this.divisionSechoires[this.valeurPiece]*this.volumeRempli*1.53);
 		
 		switch(boutonValeurs[3]) {
 		
-			case 1 : ResultatsIntermediaires[3] = prixSechoir[0]/this.divisionSechoires[this.valeurPiece];
+			case 1 : ResultatsIntermediaires[3] = prixSechoir[0]/(this.divisionSechoires[this.valeurPiece]*this.volumeRempli*1.53);
 				     break;
 			
-			case 2 : ResultatsIntermediaires[3] = prixSechoir[1]/this.divisionSechoires[this.valeurPiece];
+			case 2 : ResultatsIntermediaires[3] = prixSechoir[1]/(this.divisionSechoires[this.valeurPiece]*this.volumeRempli*1.53);
 		     		 break;
 		     		 
-			case 3 : ResultatsIntermediaires[3] = prixSechoir[2]/this.divisionSechoires[this.valeurPiece];
+			case 3 : ResultatsIntermediaires[3] = prixSechoir[2]/(this.divisionSechoires[this.valeurPiece]*this.volumeRempli*1.53);
 		     		 break;
 		     		 
 			case 0 : ResultatsIntermediaires[3] = 0;
@@ -642,11 +645,14 @@ public class Donnees extends Observable{
 			          
 		
 		}
+		java.text.DecimalFormat df = new java.text.DecimalFormat("0.##");
 		
 		for (int i = 0 ; i<5 ; i++) {
-			this.ResultatParMachine[i]=ResultatsMachines[i]/this.divisionMachines[this.valeurPiece];
+			this.ResultatParMachine[i]=ResultatsMachines[i]/(this.divisionMachines[this.valeurPiece]*1.53*this.volumeRempli);
 			for (int j = 0 ; j< ResultatsIntermediaires.length ; j++ ) {
 				this.ResultatParMachine[i]+=ResultatsIntermediaires[j]; 
+				this.ResultatParMachine[i] = (int)(this.ResultatParMachine[i]*100);
+				this.ResultatParMachine[i] = this.ResultatParMachine[i]*0.01;
 			}
 			
 		}

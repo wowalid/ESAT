@@ -19,6 +19,7 @@ public class fenetreResultat extends JFrame{
 		super("Prix sur les machines"); 
 		this.donnees=donnees; 
 		Container c = this.getContentPane();
+		
 		c.setLayout(new GridLayout(6,1));
 		Font arialGras18 = new Font("Arial", Font.BOLD, 18);
 		JLabel message = new JLabel("Prix du process si passage par : \n"); 
