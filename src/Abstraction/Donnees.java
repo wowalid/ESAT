@@ -43,7 +43,7 @@ public class Donnees extends Observable{
 			3.5,
 			2.0,
 			2.2,
-			0.7,
+			1.5,
 			2.7,
 			3.5,
 
