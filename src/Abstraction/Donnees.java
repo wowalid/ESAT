@@ -770,7 +770,6 @@ public class Donnees extends Observable{
 		
 		}
 		java.text.DecimalFormat df = new java.text.DecimalFormat("0.###");
-		
 		for (int i = 0 ; i<5 ; i++) {
 			if (i==0) {
 				double frac = (11/this.poidsPiece[this.valeurPiece-1]);
