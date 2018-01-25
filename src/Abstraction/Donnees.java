@@ -604,19 +604,19 @@ public class Donnees extends Observable{
 		double[] ResultatsMachines = new double[6];
 		
 		ResultatsIntermediaires[0] = tMoyen[0]*coutMO[1]*boutonValeurs[0];
-		ResultatsIntermediaires[2] = MoyPresechage*boutonValeurs[2]/(this.divisionSechoires[this.valeurPiece]*this.volumeRempli*1.53);
+		ResultatsIntermediaires[2] = MoyPresechage*boutonValeurs[2]/(this.divisionSechoires[this.valeurPiece-1]*this.volumeRempli*1.53);
 		
 		switch(boutonValeurs[3]) {
 		
-			case 1 :double frac1 = (25/this.poidsPiece[this.valeurPiece]); //52.5 //25 
+			case 1 :double frac1 = (25/this.poidsPiece[this.valeurPiece-1]); //52.5 //25 
 					ResultatsIntermediaires[3] = prixSechoir[0]/(frac1*this.volumeRempli);
 				     break;
 			
-			case 2 :double frac2 = (52.5/this.poidsPiece[this.valeurPiece]); //52.5 //25 
+			case 2 :double frac2 = (52.5/this.poidsPiece[this.valeurPiece-1]); //52.5 //25 
 					ResultatsIntermediaires[3] = prixSechoir[1]/(frac2*this.volumeRempli);
 		     		 break;
 		     		 
-			case 3 :double frac3 = (25/this.poidsPiece[this.valeurPiece]); //52.5 //25 
+			case 3 :double frac3 = (25/this.poidsPiece[this.valeurPiece-1]); //52.5 //25 
 					ResultatsIntermediaires[3] = prixSechoir[2]/(frac3*this.volumeRempli);
 		     		 break;
 		     		 
@@ -773,19 +773,19 @@ public class Donnees extends Observable{
 		
 		for (int i = 0 ; i<5 ; i++) {
 			if (i==0) {
-				double frac = (11/this.poidsPiece[this.valeurPiece]);
+				double frac = (11/this.poidsPiece[this.valeurPiece-1]);
 				this.ResultatParMachine[i]=ResultatsMachines[i]/(frac*this.volumeRempli);
-				this.ResultatParMachine[i]+=this.immoKg*this.poidsPiece[this.valeurPiece];
+				this.ResultatParMachine[i]+=this.immoKg*this.poidsPiece[this.valeurPiece-1];
 			}
 			else if(i==2) {
-					double frac = (50/this.poidsPiece[this.valeurPiece]);
+					double frac = (50/this.poidsPiece[this.valeurPiece-1]);
 					this.ResultatParMachine[i]=ResultatsMachines[i]/(frac*this.volumeRempli);
-					this.ResultatParMachine[i]+=this.immoKg*this.poidsPiece[this.valeurPiece];
+					this.ResultatParMachine[i]+=this.immoKg*this.poidsPiece[this.valeurPiece-1];
 			}
 			else {
-				double frac = (22/this.poidsPiece[this.valeurPiece]);
+				double frac = (22/this.poidsPiece[this.valeurPiece-1]);
 				this.ResultatParMachine[i]=ResultatsMachines[i]/(frac*this.volumeRempli);
-				this.ResultatParMachine[i]+=this.immoKg*this.poidsPiece[this.valeurPiece];				
+				this.ResultatParMachine[i]+=this.immoKg*this.poidsPiece[this.valeurPiece-1];				
 			}
 			for (int j = 0 ; j< ResultatsIntermediaires.length ; j++ ) {
 				this.ResultatParMachine[i]+=ResultatsIntermediaires[j]; 
