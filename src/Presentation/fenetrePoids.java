@@ -62,7 +62,6 @@ public class fenetrePoids extends JFrame{
 
 				"FRANGE",
 				"GANT",
-				"GILET SAUVETAGE",
 				"HOUSSE COUETTE 1 PLACE",
 				"HOUSSE COUETTE ENFANT",
 				"HOUSSE DE COUETTE 2 PLACES",
