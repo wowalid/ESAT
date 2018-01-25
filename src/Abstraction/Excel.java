@@ -124,7 +124,7 @@ public class Excel{
 				"TORCHON ROULEAU",
 		};
         try {
-        	java.text.DecimalFormat df = new java.text.DecimalFormat("0.##");
+        	java.text.DecimalFormat df = new java.text.DecimalFormat("0.###");
             HSSFWorkbook workbook = new HSSFWorkbook();
             HSSFSheet sheet = workbook.createSheet(this.sheetName);  
 
