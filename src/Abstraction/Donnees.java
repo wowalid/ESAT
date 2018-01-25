@@ -15,8 +15,130 @@ public class Donnees extends Observable{
 	public double prixGaz =  0.0785;
 	public double prixDelEau = 0.995;
 	public boolean Calcul = false;
+	public double poidsAn = 84313;
+	public double immoKg = 95000/84313;
 	
-	public double[] poidsPiece =  {};
+	public double[] poidsPiece =  {0.284,
+			0.44,
+			0.2,
+			0.15,
+
+			0.45,
+
+
+
+
+			0.12,
+			0.09,
+			0.11,
+			0.04,
+			0.08,
+			0.25,
+
+			0.9,
+
+
+			1.4,
+			2.7,
+			3.5,
+			2.0,
+			2.2,
+			0.7,
+			2.7,
+			3.5,
+
+			1.9,
+			0.1,
+			0.3,
+
+
+			1.0,
+			1.5,
+			1.0,
+			0.45,
+			0.8,
+			0.4,
+			0.3,
+			1.0,
+			0.2,
+			0.05,
+
+
+
+			1.3,
+			1.2,
+			1.5,
+			0.2,
+
+			0.45,
+			0.8,
+			1.0,
+
+			0.15,
+
+			0.8,
+			1.0,
+			1.2,
+			0.6,
+
+
+
+			0.5,
+			0.5,
+
+			0.5,
+			0.4,
+			0.5,
+			0.5,
+			1.0,
+			2.0,
+			1.5,
+			1.0,
+			0.2,
+
+			0.5,
+			0.5,
+			0.5,
+
+			1.3,
+			0.55,
+			0.4,
+			0.7,
+			0.1,
+			0.5,
+			0.2,
+			0.2,
+
+			0.3,
+			0.2,
+			0.2,
+			0.2,
+			0.2,
+			0.2,
+			0.2,
+			0.15,
+			0.1,
+
+
+
+
+			0.15,
+
+
+			1.0,
+
+			0.5,
+			0.75,
+
+			0.1,
+			0.2,
+			1.5,
+			0.1,
+			0.15,
+			0.1,
+			0.15,
+			0.1,
+};
 	public double[] divisionMachines = {50.35211268,
 			32.5,
 			71.5,
@@ -649,6 +771,7 @@ public class Donnees extends Observable{
 		
 		for (int i = 0 ; i<5 ; i++) {
 			this.ResultatParMachine[i]=ResultatsMachines[i]/(this.divisionMachines[this.valeurPiece]*1.53*this.volumeRempli);
+			this.ResultatParMachine[i]+=this.immoKg*this.poidsPiece[this.valeurPiece];
 			for (int j = 0 ; j< ResultatsIntermediaires.length ; j++ ) {
 				this.ResultatParMachine[i]+=ResultatsIntermediaires[j]; 
 				this.ResultatParMachine[i] = (int)(this.ResultatParMachine[i]*100);

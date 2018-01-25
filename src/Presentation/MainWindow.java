@@ -57,8 +57,8 @@ public class MainWindow extends JFrame{
 		JMenu copy2 = new JMenu("Menu");
 		JMenu modifier = new JMenu("Modifier"); 
 		JMenu exporter = new JMenu("Exporter...");
-		JMenuItem export = new JMenuItem("Fichier excel"); 
-		JMenuItem modif = new JMenuItem("Modifier"); 
+		JMenuItem export = new JMenuItem("Resultats sous fichier excel"); 
+		JMenuItem modif = new JMenuItem("Modifier prix"); 
 		modif.addActionListener(new controlModif(this.donnees));
 		exporter.add(export);
 		modifier.add(modif);
