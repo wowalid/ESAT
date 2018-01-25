@@ -16,7 +16,7 @@ public class Donnees extends Observable{
 	public double prixDelEau = 0.995;
 	public boolean Calcul = false;
 	public double poidsAn = 84313;
-	public double immoKg = 62000/84313;
+	public double immoKg = 92000/84313;
 	
 	public double[] poidsPiece =  {0.284,
 			0.44,
