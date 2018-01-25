@@ -2,10 +2,13 @@ package Presentation;
 
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -131,6 +134,17 @@ public class fenetrePoids extends JFrame{
 		JLabel labelPoids2 = new JLabel("Si vous désirez changer le poids de la pièce, veuillez entrer le nouveau poids en dessous");
 		JTextField choisir = new JTextField();
 		JButton save = new JButton("Enregistrer");
+		save.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					try {
+						donnees.poidsPiece[donnees.valeurPiece] = Double.parseDouble(choisir.getText());
+					}
+					catch (Exception error){ 
+						JOptionPane.showMessageDialog(null, "Veuillez rentrer des valeurs correctes ou ne rien rentrer");
+					}
+				}
+				
+			});
 		c.add(labelPoids);
 		c.add(labelPoids2);
 		c.add(choisir);
