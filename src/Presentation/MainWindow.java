@@ -27,6 +27,7 @@ import control.controlCalcul;
 import control.controlCheckBox;
 import control.controlCopy;
 import control.controlExporter;
+import control.controlImmo;
 import control.controlInfo;
 import control.controlJCombo1;
 import control.controlModif;
@@ -57,14 +58,21 @@ public class MainWindow extends JFrame{
 		JMenu copy2 = new JMenu("Menu");
 		JMenu modifier = new JMenu("Modifier"); 
 		JMenu exporter = new JMenu("Exporter...");
+
 		JMenuItem export = new JMenuItem("Resultats sous fichier excel"); 
 		JMenuItem modif = new JMenuItem("Modifier prix"); 
+
 		modif.addActionListener(new controlModif(this.donnees));
 		exporter.add(export);
 		modifier.add(modif);
 		export.addActionListener(new controlExporter(exporter, this.donnees));
 		JMenuItem copy3 = new JMenuItem("Copyright");
 		JMenuItem copy4 = new JMenuItem("Informations"); 
+		JMenuItem copy5 = new JMenuItem("Modifier");
+		JMenuItem immo = new JMenuItem("Modifier cout indirects");
+		immo.addActionListener(new controlImmo(this.donnees));
+		modifier.add(immo);
+		
 		copy3.addActionListener(new controlCopy());
 		copy4.addActionListener(new controlInfo());
 		copy2.add(copy4);
