@@ -2,15 +2,19 @@ package Presentation;
 
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import Abstraction.Donnees;
 import control.controlEnregistrer;
+import control.controlPoids;
 
 public class fenetrePoids extends JFrame{
 	private Donnees donnees;
@@ -62,7 +66,6 @@ public class fenetrePoids extends JFrame{
 
 				"FRANGE",
 				"GANT",
-				"GILET SAUVETAGE",
 				"HOUSSE COUETTE 1 PLACE",
 				"HOUSSE COUETTE ENFANT",
 				"HOUSSE DE COUETTE 2 PLACES",
@@ -132,6 +135,7 @@ public class fenetrePoids extends JFrame{
 		JLabel labelPoids2 = new JLabel("Si vous désirez changer le poids de la pièce, veuillez entrer le nouveau poids en dessous");
 		JTextField choisir = new JTextField();
 		JButton save = new JButton("Enregistrer");
+		save.addActionListener(new controlPoids(this.donnees, this, choisir));
 		c.add(labelPoids);
 		c.add(labelPoids2);
 		c.add(choisir);

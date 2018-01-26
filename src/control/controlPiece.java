@@ -14,7 +14,7 @@ import Presentation.fenetrePoids;
 public class controlPiece implements ItemListener{
 	private Donnees donnees; 
 	private JComboBox<String> pieces; 
-	
+	private int count=0;
 	public controlPiece(JComboBox<String> pieces, Donnees donnes) { 
 		this.donnees=donnes; 
 		this.pieces=pieces; 
@@ -23,9 +23,12 @@ public class controlPiece implements ItemListener{
 	@Override
 	public void itemStateChanged(ItemEvent arg0) {		
 		this.donnees.valeurPiece = this.pieces.getSelectedIndex();
-		fenetrePoids fen = new fenetrePoids(this.donnees); 
-		fen.setLocationRelativeTo(null);
-		fen.setVisible(true);
+		if (count%2==0) {
+			fenetrePoids fen = new fenetrePoids(this.donnees); 
+			fen.setLocationRelativeTo(null);
+			fen.setVisible(true);			
+		}
+		count++;
 		this.donnees.Calcul();
 	}
 	
