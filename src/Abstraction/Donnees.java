@@ -363,11 +363,11 @@ public class Donnees extends Observable{
 		
 		//FICHE TECHNIQUE!!
 			//PRIX MO
-			double[] coutMO = {19.28571429,
-					4.821428571,
-					8.035714286,
-					6.428571429,
-					1.607142857};
+			double[] coutMO = {21.21,
+					3.53,
+					10.60,
+					9.43,
+					1.18};
 
 		
 		//TEMPS MOYEN
